@@ -1,0 +1,20 @@
+includes:
+  - layer:openstack-principle
+  - interface:tls-certificates
+  - interface:openstack-ha
+  - interface:keystone-credentials
+  - interface:hacluster
+  - interface:wsgate
+  - interface:ad-join
+options:
+  basic:
+    use_venv: True
+repo: https://github.com/cloudbase/charm-wsgate
+config:
+  deletes:
+    - verbose
+    - openstack-origin
+    - use-internal-endpoints
+    - debug
+    - action-managed-upgrade
+    - use-syslog

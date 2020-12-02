@@ -1,0 +1,33 @@
+name: wsgate
+summary: FreeRDP WebConnect
+maintainer: Gabriel Adrian Samfira <gsamfira@cloudbasesolutions.com>
+description: |
+  FreeRDP WebConnect service.
+tags:
+- openstack
+- dashboard
+- console
+extra-bindings:
+  public: !!null ""
+  admin: !!null ""
+  internal: !!null ""
+subordinate: false
+display-name: FreeRDP WebConnect
+series:
+- bionic
+- focal
+provides:
+  wsgate:
+    interface: wsgate
+requires:
+  identity-credentials:
+    interface: keystone-credentials
+  ha:
+    interface: "hacluster"
+    scope: "container"
+  ad-join:
+    interface: ad-join
+peers:
+  cluster:
+    interface: "openstack-ha"
+

@@ -1,0 +1,16 @@
+[Unit]
+Description=FreeRDP WebConnect
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/snap/bin/wsgate -c {{ cfg_file }}
+TimeoutSec=1
+Restart=always
+RestartSec=5s
+# Change this to the user you want the wallet
+# daemon to run under
+User={{ username }}
+
+[Install]
+WantedBy=multi-user.target
